@@ -10,7 +10,6 @@ app = Flask(__name__,
             static_folder='web/static',
             template_folder='web/templates')
 
-ip = get_local_ip()
 port = 5000
 
 CORS(app)
@@ -35,7 +34,7 @@ def right():
 
 @app.route('/')
 def index():
-    return render_template('index.html', server_ip=ip, server_port=port)
+    return render_template('index.html')
 if __name__ == '__main__':
     host = '0.0.0.0'
     app.run(host=host, port=port, debug=True)

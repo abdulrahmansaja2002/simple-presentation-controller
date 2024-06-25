@@ -3,7 +3,13 @@ from flask_cors import CORS
 from helpers.key_down import left_arrow_key, right_arrow_key
 from helpers.lan_ip import get_local_ip
 
-app = Flask(__name__)
+# taken from: https://stackoverflow.com/questions/20646822/how-to-serve-static-files-in-flask#answer-42791810
+# serve static files from the root directory
+app = Flask(__name__,
+            static_url_path='', 
+            static_folder='web/static',
+            template_folder='web/templates')
+
 ip = get_local_ip()
 port = 5000
 
